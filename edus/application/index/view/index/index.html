@@ -1,0 +1,84 @@
+﻿{extend name="public/base" /}
+{block name="seo"}
+<title>{$title|default="标题"}</title>
+<meta name="keywords" content="{$keywords|default='关键字'}">
+<meta name="description" content="{$desc|default='描述'}">
+{/block}
+
+
+{block name="section"}
+<section class="Hui-article-box">
+	<nav class="breadcrumb"><i class="Hui-iconfont"></i> <a href="/" class="maincolor">首页</a>
+		<span class="c-999 en">&gt;</span>
+		<span class="c-666">运行环境</span>
+		<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+	<div class="Hui-article">
+		<article class="cl pd-20">
+			<p class="f-20 text-success">PHP中文教学管理系统</p>
+			<p>登录次数：{:session("user_info.login_count")+1}</p>
+			<p>上次登录IP：{$Request.ip}  上次登录时间：{:session("user_info.login_time")}</p>
+			<table class="table table-border table-bordered table-bg mt-20">
+				<thead>
+				<tr>
+					<th colspan="2" scope="col">服务器信息</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<th width="30%">$_SERVER['SCRIPT_NAME']变量</th>
+					<td><span id="lbServerName">{$Think.server.script_name}</span></td>
+				</tr>
+				<tr>
+					<td>常量输出</td>
+					<td>{$Think.APP_PATH}</td>
+				</tr>
+				<tr>
+					<td>配置输出</td>
+					<td>{$Think.config.default_module}</td>
+				</tr>
+				<tr>
+					<td>配置输出</td>
+					<td>{$Think.config.default_controller}</td>
+				</tr>
+				<tr>
+					<td>语言变量 </td>
+					<td>{$Think.lang.page_error}</td>
+				</tr>
+				<tr>
+					<td>语言变量 </td>
+					<td>{$Think.lang.var_error}</td>
+				</tr>
+				<tr>
+					<td>Request对象的root方法 </td>
+					<td>{$Request.root.true}</td>
+				</tr>
+				<tr>
+					<td>Request对象的path方法 </td>
+					<td>{$Request.path}</td>
+				</tr>
+				<tr>
+					<td>Request对象的module方法 </td>
+					<td>{$Request.module}</td>
+				</tr>
+				<tr>
+					<td>Request对象的host方法 </td>
+					<td>{$Request.host}</td>
+				</tr>
+				<tr>
+					<td>Request对象的ip方法 </td>
+					<td>{$Request.ip}</td>
+				</tr>
+				</tbody>
+			</table>
+		</article>
+		<footer class="footer">
+			<p>PHP中文教学管理系统<br> 本后台系统由<a href="http://www.h-ui.net/" target="_blank" title="H-ui前端框架">H-ui前端框架</a>提供前端技术支持</p>
+		</footer>
+	</div>
+</section>
+{/block}
+
+
+
+
+
